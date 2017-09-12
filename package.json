@@ -1,0 +1,20 @@
+{
+  "name": "dep-checker",
+  "version": "0.4.0",
+  "description": "TEST dependency checker",
+  "main": "index.jsx",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "transpile": "babel  src --out-dir .//"
+
+  },
+  "author": "Andrey Zzeee",
+  "license": "ISC",
+  "dependencies": {
+    "https": "^1.0.0"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.1.6"
+  }
+}
