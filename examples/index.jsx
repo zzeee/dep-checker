@@ -1,9 +1,12 @@
 var dchecker=require("dep-checker");
 var fs=require("fs");
-var bodyParser = require('body-parser')
-var app=require("express");
+var bodyParser = require("body-parser")
+var express=require("express");
+let app = express();
 
-app.use(bodyParser.urlencoded({ extended: false }))
+app.use(bodyParser.urlencoded());
+
+//app.use(bodyParser.urlencoded({ extended: false }))
 
 
 
@@ -16,32 +19,24 @@ app.post('/', function (req, res) {
     reqdat=req.body.nam;
     let ininc=0;
     let rdata=dchecker.getLibListFromJson(reqdat);
-
     for(x in rdata) ininc++;
-    console.log(ininc);
     let alllib=[];
     let countlib=0;
+    res.write("<table border=\"1\">");
     for (x in rdata)
     {
-        let lline=x;
         let qline=rdata[x];
-
-        let rt=new checker.LibChecker(x).then((e)=>{
-            e["latest"];
-            aline=[];
-            aline[lline]=e;
-            console.log(lline,qline,e);
+        let lline=x;
+        console.log(x);
+        let rt=new dchecker.LibChecker(x).then((e)=>{
+            res.write("<tr><td>"+lline+"</td><td>"+qline+"</td><td>"+e["latest"]+"</td></tr>")
             countlib++;
             if (countlib==ininc) {
-                console.log("RT",alllib, JSON.stringify(alllib), JSON.stringify(aline));
+                res.write("</table>");
                 res.end();
             }
-
         },console.log);
-
     }
-//console.log(alllib, alllib.length);
-//res.end();
 });
 
 let port=3000;
