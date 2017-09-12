@@ -65,8 +65,6 @@ function getDepCompHtml(packstr) {
 }
 
 const enterscr = '<h1>Запостите package.json</h1><form method="POST" enctype="multipart-form/data" action="/"><textarea cols="40" rows="30" name="nam"></textarea><br /><button  type="submit" >Отправить</button></form>';
-const badjsonerr = '<h1>Ошибка анализа JSON, попробуйте еще раз </h1>';
-
 
 app.get('/', function (req, res) {
     res.send(enterscr);
