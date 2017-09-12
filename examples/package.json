@@ -10,7 +10,7 @@
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.18.0",
-    "dep-checker": "file:dep-checker",
+    "dep-checker": "^0.7.1",
     "express": "^4.15.4"
   }
 }
