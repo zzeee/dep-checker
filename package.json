@@ -1,6 +1,6 @@
 {
   "name": "dep-checker",
-  "version": "0.4.0",
+  "version": "0.7.2",
   "description": "TEST dependency checker",
   "main": "index.jsx",
   "scripts": {
@@ -11,18 +11,18 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/zzeee/dep-checker.git"
-  }
+  },
   "author": "Andrey Zzeee",
   "license": "ISC",
    "bugs": {
     "url": "https://github.com/zzeee/dep-checker/issues"
-  }
+  },
   "dependencies": {
     "https": "^1.0.0"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-preset-env": "^1.1.6"
-  }
+  },
 "homepage": "https://github.com/zzeee/dep-checker#readme"
 }

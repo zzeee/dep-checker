@@ -4,17 +4,15 @@ export class LibChecker {
     constructor(libname) {
         this.lib = libname;
         this.versions = [];
-        this.loaded = 0;
-    }
-
-    load() {
-        this.loading=_load();
-        this.loaded=-1;
-        this.loading.then((e) => {
-            this.versions = e;
-            this.loaded = 1;
-        }, new Error('error while loading info'));
-
+        return new Promise((ok, nok) => {
+            this.loading = this._load().then((e) => {
+                this.versions = e;
+                let result = [];
+                result["all"] = e;
+                for (var y in e) result["latest"] = y; //TODO - сделать выбор по критериям
+                ok(result);
+            });
+        });
     }
 
     _load() {
@@ -32,28 +30,6 @@ export class LibChecker {
                 }, rej);
             }, rej);
         });
-    }
-
-    getAllVersions() {
-        if (this.loaded !== 1) return false;
-        return this.versions;
-    }
-
-    getVersionData(vers) {
-        if (this.loaded !== 1) return false;
-        return e.versions[version];
-    }
-
-    getLastVersion() {
-        if (this.loaded !== 1) return false;
-        /* проверить, может просто сделать pop ?*/
-        let resarr = []
-        let last = "";
-        for (x in this.versions) {
-            //resarr.push(x)
-            last = x;
-        }
-        return last;
     }
 
     _readLib(lib) {
@@ -87,4 +63,23 @@ export class LibChecker {
         });
     }
 
+}
+
+export function getLibListFromJson(rtext) {
+    try {
+
+        let parsed = JSON.parse(rtext);
+        let resarr = [];
+        if (parsed && parsed.dependencies) {
+            let qrt = parsed.dependencies;
+            return qrt;
+//                for (x in qrt) {
+            //                  resarr[x] = qrt[x];
+            //            }
+        }
+    }
+    catch (ex) {
+        throw(ex);
+    }
+    return false;
 }
