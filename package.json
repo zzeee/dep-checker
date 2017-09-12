@@ -1,6 +1,6 @@
 {
   "name": "dep-checker",
-  "version": "0.7.2",
+  "version": "0.8.0",
   "description": "TEST dependency checker",
   "main": "index.jsx",
   "scripts": {
