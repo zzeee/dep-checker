@@ -4,9 +4,9 @@
   "description": "TEST dependency checker",
   "main": "index.jsx",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "transpile": "babel  src --out-dir .//"
-
+    "transpile": "babel  src --out-dir .//",
+    "start": "node examples/index.jsx",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
@@ -14,15 +14,20 @@
   },
   "author": "Andrey Zzeee",
   "license": "ISC",
-   "bugs": {
+  "bugs": {
     "url": "https://github.com/zzeee/dep-checker/issues"
   },
   "dependencies": {
-    "https": "^1.0.0"
+    "body-parser": "^1.18.0",
+    "dep-checker": "^0.7.1",
+    "express": "^4.15.4",
+    "html-convert": "^2.1.7",
+    "https": "^1.0.0",
+    "node-render": "^1.1.1"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-preset-env": "^1.1.6"
   },
-"homepage": "https://github.com/zzeee/dep-checker#readme"
+  "homepage": "https://github.com/zzeee/dep-checker#readme"
 }
